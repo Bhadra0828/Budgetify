@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Budget Buddy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+ 
+<body>
+ 
+    <div id="authPage" class="auth-container">
+        <div class="auth-card">
+            <h2 id="authTitle">Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="handlelogin()" id="authBtn">Login</button>
+            <p onclick="loginpage()" id="toggleMsg">Don't have an account? Sign Up</p>
+        </div>
+    </div>
+ 
+    <div id="mainPage" style="display: none;">
+        <div class="sidebar">
+            <div class="logo">Budget Buddy</div>
+            <button onclick="showSection('expenseSection')">Expenses</button>
+            <button onclick="showSection('savingsSection')">Savings</button>
+            <button onclick="location.reload()" class="logout-btn">Logout</button>
+        </div>
+ 
+        <div class="main-content">
+            <div id="expenseSection">
+                <h1 class="page-title">Expense Management</h1>
+                <div class="top-center-bar">
+                    <input type="text" id="catName" placeholder="Category Name (e.g. Food)">
+                    <input type="number" id="catBudget" placeholder="Monthly Budget ($)">
+                    <button onclick="createCategory()">Create Category</button>
+                </div>
+                <div id="expenseGrid" class="grid"></div>
+            </div>
+ 
+            <div id="savingsSection" style="display: none;">
+                <h1 class="page-title">Savings Tracker</h1>
+                <div class="savings-card">
+                    <h2>Daily Savings Goal</h2>
+                    <input type="range" id="savingsSlider" min="0" max="500" value="0" oninput="updateSavingsCalc()">
+                    <div class="slider-value">$<span id="sliderValDisplay">0</span></div>
+                    <div class="calc-results">
+                        <p>Annual Savings: <strong id="yearlyTotal">$0</strong></p>
+                    </div>
+                    <div class="suggestion-bar" id="suggestionBar">Slide to see your savings benefits!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <script src="script.js"></script>
+</body>
+ 
+</html>
