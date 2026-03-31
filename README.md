@@ -1,0 +1,2 @@
+# Budgetify
+Personal budgeting platform
